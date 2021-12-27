@@ -18,7 +18,9 @@ public class AoC2015Day02Tests {
     public void Solution1Test() {
         var day2 = new AoC2015Day02();
         day2.Setup();
-        Console.WriteLine(day2.Solution1());
+        var result = day2.Solution1();
+        Assert.AreEqual(1606483, result);
+        Console.WriteLine($"Result: {result}");
     }
 
     [TestCase("2x3x4", 34)]
@@ -33,6 +35,8 @@ public class AoC2015Day02Tests {
     public void Solution2Test() {
         var day2 = new AoC2015Day02();
         day2.Setup();
-        Console.WriteLine(day2.Solution2());
+        var result = day2.Solution2();
+        Assert.AreEqual(3842356, result);
+        Console.WriteLine($"Result: {result}");
     }
 }

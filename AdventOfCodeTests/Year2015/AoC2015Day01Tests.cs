@@ -25,13 +25,17 @@ public class AoC2015Day01Tests {
     public void Solution1Test() {
         var day1 = new AoC2015Day01();
         day1.Setup();
-        Console.WriteLine(day1.Solution1());
+        var result = day1.Solution1();
+        Assert.AreEqual(74, result);
+        Console.WriteLine($"Result: {result}");
     }
 
     [Test]
     public void Solution2Test() {
         var day1 = new AoC2015Day01();
         day1.Setup();
-        Console.WriteLine(day1.Solution2());
+        var result = day1.Solution2();
+        Assert.AreEqual(1795, result);
+        Console.WriteLine($"Result: {result}");
     }
 }
