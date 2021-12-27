@@ -16,25 +16,25 @@ public class AoC2015Day01Tests {
     [TestCase(")))", -3)]
     [TestCase(")())())", -3)]
     public void Samples(string input, long expect) {
-        var day1 = new AoC2015Day01();
-        day1.Setup(input);
-        Assert.AreEqual(expect, day1.Solution1());
+        var instance = new AoC2015Day01();
+        instance.Setup(input);
+        Assert.AreEqual(expect, instance.Solution1());
     }
 
     [Test]
     public void Solution1Test() {
-        var day1 = new AoC2015Day01();
-        day1.Setup();
-        var result = day1.Solution1();
+        var instance = new AoC2015Day01();
+        instance.Setup();
+        var result = instance.Solution1();
         Assert.AreEqual(74, result);
         Console.WriteLine($"Result: {result}");
     }
 
     [Test]
     public void Solution2Test() {
-        var day1 = new AoC2015Day01();
-        day1.Setup();
-        var result = day1.Solution2();
+        var instance = new AoC2015Day01();
+        instance.Setup();
+        var result = instance.Solution2();
         Assert.AreEqual(1795, result);
         Console.WriteLine($"Result: {result}");
     }
