@@ -1,12 +1,11 @@
 using System;
-using AdventOfCode.Year2015.Day01;
+using AdventOfCode.Year2015;
 using NUnit.Framework;
 
-namespace AdventOfCodeTests.Year2015; 
+namespace AdventOfCodeTests.Year2015;
 
 [TestFixture]
 public class AoC2015Day01Tests {
-
     [TestCase("(())", 0)]
     [TestCase("()()", 0)]
     [TestCase("(((", 3)]
@@ -34,5 +33,5 @@ public class AoC2015Day01Tests {
         var day1 = new AoC2015Day01();
         day1.Setup();
         Console.WriteLine(day1.Solution2());
-    } 
+    }
 }

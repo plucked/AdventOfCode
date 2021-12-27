@@ -1,8 +1,6 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=ce1a3957_002D3eca_002D4ac0_002D8d5d_002Dc9abe5071ebc/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="Samples" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=1bbf5eab_002D56f9_002D4c2b_002Dadaf_002D8b7459d09f0d/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="AoC2015Day02Tests" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
   &lt;TestAncestor&gt;
-    &lt;TestId&gt;NUnit3x::3F9E2785-BE29-435D-A32E-9669D17B923E::net6.0::AdventOfCodeTests.Year2015.AoC2015Day01Tests.Samples&lt;/TestId&gt;
-    &lt;TestId&gt;NUnit3x::3F9E2785-BE29-435D-A32E-9669D17B923E::net6.0::AdventOfCodeTests.Year2015.AoC2015Day01Tests.Solution1Test&lt;/TestId&gt;
-    &lt;TestId&gt;NUnit3x::3F9E2785-BE29-435D-A32E-9669D17B923E::net6.0::AdventOfCodeTests.Year2015.AoC2015Day01Tests.Solution2Test&lt;/TestId&gt;
+    &lt;TestId&gt;NUnit3x::3F9E2785-BE29-435D-A32E-9669D17B923E::net6.0::AdventOfCodeTests.Year2015.AoC2015Day02Tests&lt;/TestId&gt;
   &lt;/TestAncestor&gt;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
