@@ -1,5 +1,3 @@
-using System.Security.Cryptography;
-using System.Text;
 using BenchmarkDotNet.Attributes;
 
 namespace AdventOfCode.Year2015;
