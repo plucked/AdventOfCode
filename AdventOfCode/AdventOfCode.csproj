@@ -13,8 +13,8 @@
     </ItemGroup>
 
     <ItemGroup>
-      <None Remove="**\*_input.txt" />
-      <Content Include="**\*_input.txt">
+      <None Remove="Year2015\*_input.txt" />
+      <Content Include="Year2015\*_input.txt">
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       </Content>
     </ItemGroup>
