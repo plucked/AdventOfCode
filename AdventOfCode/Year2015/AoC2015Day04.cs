@@ -4,6 +4,19 @@ using BenchmarkDotNet.Attributes;
 
 namespace AdventOfCode.Year2015;
 
+/// <summary>
+/// The problem is finding a md5 hash with leading zeroes. It is clear that the puzzle
+/// is not about implementing a md5 hash algorithm, rather than detecting how to figure out
+/// how the leading zeroes of a hex string can be read from a byte array.
+///
+/// A hex of 'FF' = 255
+/// A hex of '0F' = 15
+/// A hex of '00' = 0
+///
+/// By using this check, you can quickly iterate over the nonce until you find one where either the first bytes are
+/// 0, 0, and less than 16 = 5 leading zeroes
+/// 0, 0, 0 = 6 leading zeroes
+/// </summary>
 public class AoC2015Day04 {
     private byte[] input;
     
