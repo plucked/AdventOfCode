@@ -12,9 +12,9 @@ public class AoC2015Day09 {
     private uint locationCount;
 
     private struct Edge {
-        public uint LocationA;
-        public uint LocationB;
-        public uint Distance;
+        public int LocationA;
+        public int LocationB;
+        public int Distance;
     }
 
     [GlobalSetup(Targets = new[] { nameof(Solution1), nameof(Solution2) })]
@@ -23,8 +23,8 @@ public class AoC2015Day09 {
     }
 
     public void Setup(string[]? customInput = null) {
-        var uniqueId = new Dictionary<string, uint>();
-        uint nextIndex = 1;
+        var uniqueId = new Dictionary<string, int>();
+        int nextIndex = 1;
         var lines = customInput ?? File.ReadAllLines("Year2015/2015_09_input.txt");
         input = lines.Select(
                              line => {
@@ -32,8 +32,8 @@ public class AoC2015Day09 {
                                  var split2 = split1[1].Split(" = ");
                                  var locA = split1[0];
                                  var locB = split2[0];
-                                 uint locAIdx = 0;
-                                 uint locBIdx = 0;
+                                 int locAIdx = 0;
+                                 int locBIdx = 0;
 
                                  if (uniqueId.TryGetValue(locA, out locAIdx) == false) {
                                      locAIdx = nextIndex;
@@ -47,7 +47,7 @@ public class AoC2015Day09 {
                                      nextIndex <<= 1;
                                  }
 
-                                 return new Edge { LocationA = locAIdx, LocationB = locBIdx, Distance = uint.Parse(split2[1]) };
+                                 return new Edge { LocationA = locAIdx, LocationB = locBIdx, Distance = int.Parse(split2[1]) };
                              })
                      .ToArray();
 
@@ -64,8 +64,8 @@ public class AoC2015Day09 {
         return Run(false);
     }
 
-    unsafe uint Run(bool returnShortestDistance) {
-        uint bestDistanceTravelled = returnShortestDistance ? uint.MaxValue : uint.MinValue;
+    public unsafe int Run(bool returnShortestDistance, bool travelToStart = false) {
+        int bestDistanceTravelled = returnShortestDistance ? int.MaxValue : int.MinValue;
 
         // need to create a thread, because the default max stack size of the main thread is 1MB and
         // this solution needs about 64MB because of the recursion (o:
@@ -74,18 +74,23 @@ public class AoC2015Day09 {
                     // create a graph to look up distances (faster than a dict lookup)
                     // the index in the table is ids of two cities combined
                     // the puzzle input has 7 cities, so the biggest index will be 1100000 = 96
-                    var distances = stackalloc uint[11000001];
+                    var distances = stackalloc int[11000001];
                     foreach (var edge in input) {
                         distances[edge.LocationA | edge.LocationB] = edge.Distance;
                     }
 
                     for (int i = 0; i < locationCount; i++) {
-                        uint location = 1u << i;
-                        Travel(location, location, 0u);
+                        int location = 1 << i;
+                        Travel(location, location, 0, travelToStart ? location : null);
                     }
 
-                    void Travel(uint travelled, uint from, uint distanceTravelled) {
-                        if (BitOperations.PopCount(travelled) == locationCount) {
+                    void Travel(int travelled, int from, int distanceTravelled, int? start) {
+                        if (BitOperations.PopCount((uint)travelled) == locationCount) {
+                            // this is needed for the day 13 solution, ignored in day 9
+                            if (start != null) {
+                                distanceTravelled += distances[(@from | start.Value)];
+                            }
+
                             if (returnShortestDistance) {
                                 bestDistanceTravelled = Math.Min(bestDistanceTravelled, distanceTravelled);
                             } else {
@@ -94,12 +99,12 @@ public class AoC2015Day09 {
                         }
 
                         for (int i = 0; i < locationCount; i++) {
-                            uint location = 1u << i;
+                            int location = 1 << i;
                             if ((location & travelled) != 0) {
                                 continue;
                             }
 
-                            Travel(travelled | location, location, distanceTravelled + distances[(from | location)]);
+                            Travel(travelled | location, location, distanceTravelled + distances[(from | location)], start);
                         }
                     }
                 },
