@@ -62,7 +62,7 @@ public class AoC2015Day23 {
 
     [Benchmark]
     public long Solution1(int resultOfRegister = 1) {
-        return Run(new int[2], 1);
+        return Run(new int[2], resultOfRegister);
     }
 
     [Benchmark]
