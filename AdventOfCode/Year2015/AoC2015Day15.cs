@@ -1,6 +1,5 @@
 using System.Text.RegularExpressions;
 using BenchmarkDotNet.Attributes;
-using Microsoft.Diagnostics.Tracing.Parsers.ApplicationServer;
 
 namespace AdventOfCode.Year2015;
 
@@ -79,7 +78,7 @@ public class AoC2015Day15 {
                         return;
                     }
                 }
-                
+
                 for (int i = 0; i < 4; i++) {
                     long attributeScore = 0;
                     for (int j = 0; j < input.Length; j++) {

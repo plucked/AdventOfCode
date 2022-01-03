@@ -9,14 +9,14 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="BenchmarkDotNet" Version="0.13.1" />
+        <PackageReference Include="BenchmarkDotNet" Version="0.13.1"/>
     </ItemGroup>
 
     <ItemGroup>
-      <None Remove="Year2015\*_input.txt" />
-      <Content Include="Year2015\*_input.txt">
-        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      </Content>
+        <None Remove="Year2015\*_input.txt"/>
+        <Content Include="Year2015\*_input.txt">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </Content>
     </ItemGroup>
 
 </Project>

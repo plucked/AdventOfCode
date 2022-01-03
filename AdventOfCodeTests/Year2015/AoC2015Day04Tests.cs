@@ -22,7 +22,6 @@ public class AoC2015Day04Tests {
         Assert.AreEqual(346386, result);
         Console.WriteLine($"Result: {result}");
     }
-    
 
     [Test]
     public void Solution2Test() {

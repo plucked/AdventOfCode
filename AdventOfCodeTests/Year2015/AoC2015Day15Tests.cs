@@ -7,10 +7,7 @@ namespace AdventOfCodeTests.Year2015;
 [TestFixture]
 public class AoC2015Day15Tests {
     [TestCase(
-            new[] {
-                    "Butterscotch: capacity -1, durability -2, flavor 6, texture 3, calories 8",
-                    "Cinnamon: capacity 2, durability 3, flavor -2, texture -1, calories 3"
-            },
+            new[] { "Butterscotch: capacity -1, durability -2, flavor 6, texture 3, calories 8", "Cinnamon: capacity 2, durability 3, flavor -2, texture -1, calories 3" },
             62842880)]
     public void Solution1Example(string[] input, long expect) {
         var instance = new AoC2015Day15();
@@ -28,17 +25,14 @@ public class AoC2015Day15Tests {
     }
 
     [TestCase(
-            new[] {
-                    "Butterscotch: capacity -1, durability -2, flavor 6, texture 3, calories 8",
-                    "Cinnamon: capacity 2, durability 3, flavor -2, texture -1, calories 3"
-            },
+            new[] { "Butterscotch: capacity -1, durability -2, flavor 6, texture 3, calories 8", "Cinnamon: capacity 2, durability 3, flavor -2, texture -1, calories 3" },
             57600000)]
     public void Solution2Example(string[] input, long expect) {
         var instance = new AoC2015Day15();
         instance.Setup(input);
         Assert.AreEqual(expect, instance.Solution2());
     }
-    
+
     [Test]
     public void Solution2Test() {
         var instance = new AoC2015Day15();

@@ -6,13 +6,13 @@ namespace AdventOfCodeTests.Year2015;
 
 [TestFixture]
 public class AoC2015Day17Tests {
-    [TestCase(new[]{20,15,10,5,5}, 4)]
+    [TestCase(new[] { 20, 15, 10, 5, 5 }, 4)]
     public void Solution1Example(int[] buckets, long expected) {
         var instance = new AoC2015Day17();
         instance.Setup(buckets);
         Assert.AreEqual(expected, instance.Solution1(25));
     }
-    
+
     [Test]
     public void Solution1Test() {
         var instance = new AoC2015Day17();
@@ -22,13 +22,13 @@ public class AoC2015Day17Tests {
         Console.WriteLine($"Result: {result}");
     }
 
-    [TestCase(new[]{20,15,10,5,5}, 3)]
+    [TestCase(new[] { 20, 15, 10, 5, 5 }, 3)]
     public void Solution2Example(int[] buckets, long expected) {
         var instance = new AoC2015Day17();
         instance.Setup(buckets);
         Assert.AreEqual(expected, instance.Solution2(25));
     }
-    
+
     [Test]
     public void Solution2Test() {
         var instance = new AoC2015Day17();

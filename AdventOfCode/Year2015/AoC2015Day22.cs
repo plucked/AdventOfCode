@@ -70,7 +70,7 @@ public class AoC2015Day22 {
         return Run(true);
     }
 
-    long Run(bool hardMode) {
+    private long Run(bool hardMode) {
         var games = new Stack<GameState>();
         games.Push(new GameState(500, 0, 50, 58, 9, true, 0, 0, 0));
 

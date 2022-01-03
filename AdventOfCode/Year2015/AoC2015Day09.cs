@@ -88,7 +88,7 @@ public class AoC2015Day09 {
                         if (BitOperations.PopCount((uint)travelled) == locationCount) {
                             // this is needed for the day 13 solution, ignored in day 9
                             if (start != null) {
-                                distanceTravelled += distances[(@from | start.Value)];
+                                distanceTravelled += distances[@from | start.Value];
                             }
 
                             if (returnShortestDistance) {
@@ -104,7 +104,7 @@ public class AoC2015Day09 {
                                 continue;
                             }
 
-                            Travel(travelled | location, location, distanceTravelled + distances[(from | location)], start);
+                            Travel(travelled | location, location, distanceTravelled + distances[@from | location], start);
                         }
                     }
                 },

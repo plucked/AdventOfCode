@@ -34,7 +34,7 @@ HOHOHO",
         Assert.AreEqual(509, result);
         Console.WriteLine($"Result: {result}");
     }
-    
+
     [TestCase(
             @"e => H
 e => O

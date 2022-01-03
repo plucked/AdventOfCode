@@ -39,7 +39,7 @@ public class AoC2015Day14 {
             var secondsPast = 0;
             while (secondsPast < seconds) {
                 var moveTime = input[reindeerIdx].MoveTime;
-                moveTime = (secondsPast + moveTime <= seconds) ? moveTime : seconds - secondsPast;
+                moveTime = secondsPast + moveTime <= seconds ? moveTime : seconds - secondsPast;
                 distance[reindeerIdx] += moveTime * input[reindeerIdx].Speed;
                 secondsPast += moveTime + input[reindeerIdx].RestTime;
             }

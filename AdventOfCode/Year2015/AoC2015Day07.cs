@@ -5,7 +5,7 @@ namespace AdventOfCode.Year2015;
 public class AoC2015Day07 {
     private Instruction[] instructions;
 
-    struct Instruction {
+    private struct Instruction {
         public Op Operation;
         public string? VariableA;
         public uint? ValueA;
@@ -91,8 +91,8 @@ public class AoC2015Day07 {
 
         while (q.TryDequeue(out var instruction)) {
             // don't run an instruction when the inputs are not calculated
-            if ((instruction.VariableA != null && variables.ContainsKey(instruction.VariableA) == false) ||
-                (instruction.VariableB != null && variables.ContainsKey(instruction.VariableB) == false)) {
+            if (instruction.VariableA != null && variables.ContainsKey(instruction.VariableA) == false ||
+                instruction.VariableB != null && variables.ContainsKey(instruction.VariableB) == false) {
                 q.Enqueue(instruction);
                 continue;
             }

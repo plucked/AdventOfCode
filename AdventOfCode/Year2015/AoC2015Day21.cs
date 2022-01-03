@@ -84,7 +84,7 @@ public class AoC2015Day21 {
         return maxGold;
     }
 
-    void BattleEachCombo(Action<bool, ItemStats> cb) {
+    private void BattleEachCombo(Action<bool, ItemStats> cb) {
         for (int sword = 0; sword < swords.Count; sword++) {
             ItemStats? s = swords[sword];
             for (int armor = 0; armor <= armors.Count; armor++) {
@@ -107,7 +107,7 @@ public class AoC2015Day21 {
         }
     }
 
-    bool Battle(CharacterStats player, CharacterStats boss) {
+    private bool Battle(CharacterStats player, CharacterStats boss) {
         var playerDmg = Math.Max(1, player.Damage - boss.Armor);
         var bossDmg = Math.Max(1, boss.Damage - player.Armor);
 

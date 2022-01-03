@@ -1,4 +1,3 @@
-using System.Numerics;
 using BenchmarkDotNet.Attributes;
 
 namespace AdventOfCode.Year2015;
@@ -17,7 +16,7 @@ public class AoC2015Day18 {
     }
 
     public void Setup(string[]? customInput = null) {
-        var lines = (customInput ?? File.ReadAllLines("Year2015/2015_18_input.txt"));
+        var lines = customInput ?? File.ReadAllLines("Year2015/2015_18_input.txt");
         height = lines.Length;
         width = lines[0].Length;
         field = new bool[height + 2, width + 2]; // add some space above, right, left and below so we can skip some checks

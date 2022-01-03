@@ -23,7 +23,7 @@ public class AoC2015Day03Tests {
         Assert.AreEqual(2081, result);
         Console.WriteLine($"Result: {result}");
     }
-    
+
     [TestCase("^v", 3)]
     [TestCase("^>v<", 3)]
     [TestCase("^v^v^v^v^v", 11)]

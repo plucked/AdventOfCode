@@ -28,7 +28,7 @@ public class AoC2015Day12Tests {
         Assert.AreEqual(191164, result);
         Console.WriteLine($"Result: {result}");
     }
-    
+
     [TestCase("[1,2,3]", 6)]
     [TestCase("[1,{\"c\":\"red\",\"b\":2},3]", 4)]
     [TestCase("{\"d\":\"red\",\"e\":[1,2,3,4],\"f\":5}", 0)]

@@ -5,6 +5,7 @@ namespace AdventOfCode.Year2015;
 
 public class AoC2015Day17 {
     private int[] buckets;
+
     [GlobalSetup(Targets = new[] { nameof(Solution1), nameof(Solution2) })]
     public void BenchmarkSetup() {
         Setup();
@@ -44,7 +45,7 @@ public class AoC2015Day17 {
                 ++result;
             }
         }
-        
+
         return result;
     }
 
@@ -89,7 +90,7 @@ public class AoC2015Day17 {
                 }
             }
         }
-        
+
         return result;
     }
 }

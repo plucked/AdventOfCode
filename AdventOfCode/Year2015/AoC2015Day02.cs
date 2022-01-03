@@ -11,7 +11,7 @@ public unsafe class AoC2015Day02 {
     }
 
     public void Setup(string[]? customInput = null) {
-        var lines = (customInput ?? File.ReadAllLines("Year2015/2015_02_input.txt"));
+        var lines = customInput ?? File.ReadAllLines("Year2015/2015_02_input.txt");
         input = lines.Select(
                              line => {
                                  var split = line.Split('x');

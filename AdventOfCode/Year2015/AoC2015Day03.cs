@@ -9,14 +9,14 @@ public class AoC2015Day03 {
     private const byte MOVE_RIGHT = 4;
     private const long OFFSET = 1000000;
     private byte[] input;
-    
+
     [GlobalSetup(Targets = new[] { nameof(Solution1), nameof(Solution2) })]
     public void BenchmarkSetup() {
         Setup();
     }
 
     public void Setup(string? customInput = null) {
-        var lines = (customInput ?? File.ReadAllText("Year2015/2015_03_input.txt"));
+        var lines = customInput ?? File.ReadAllText("Year2015/2015_03_input.txt");
         input = lines.Select(
                              c => {
                                  switch (c) {
@@ -28,8 +28,8 @@ public class AoC2015Day03 {
                                          return MOVE_DOWN;
                                      case '<':
                                          return MOVE_LEFT;
-                                 default:
-                                     throw new Exception($"Unexpected char '{c}'");
+                                     default:
+                                         throw new Exception($"Unexpected char '{c}'");
                                  }
                              })
                      .ToArray();
@@ -60,7 +60,7 @@ public class AoC2015Day03 {
 
             visited.Add(ToIndex(x, y));
         }
-        
+
         return visited.Count;
     }
 
@@ -92,11 +92,11 @@ public class AoC2015Day03 {
             santa += 1;
             santa = santa > 1 ? 0 : santa;
         }
-        
+
         return visited.Count;
     }
-    
-    long ToIndex(long x, long y) {
-        return (x + OFFSET) << 32 | (y + OFFSET);
+
+    private long ToIndex(long x, long y) {
+        return ((x + OFFSET) << 32) | (y + OFFSET);
     }
 }

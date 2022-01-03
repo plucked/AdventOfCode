@@ -6,18 +6,13 @@ namespace AdventOfCodeTests.Year2015;
 
 [TestFixture]
 public class AoC2015Day23Tests {
-    [TestCase(new [] {
-            "inc a",
-            "jio a, +2",
-            "tpl a",
-            "inc a"
-    }, 2)]
+    [TestCase(new[] { "inc a", "jio a, +2", "tpl a", "inc a" }, 2)]
     public void Solution1Example(string[] input, long expected) {
         var instance = new AoC2015Day23();
         instance.Setup(input);
         Assert.AreEqual(expected, instance.Solution1(0));
     }
-    
+
     [Test]
     public void Solution1Test() {
         var instance = new AoC2015Day23();

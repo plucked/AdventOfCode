@@ -13,7 +13,7 @@ public class AoC2015Day05Tests {
     [TestCase("dvszwmarrgswjxmb", 0)]
     public void SamplesSolution1(string input, long expect) {
         var instance = new AoC2015Day05();
-        instance.Setup(new []{input});
+        instance.Setup(new[] { input });
         Assert.AreEqual(expect, instance.Solution1());
     }
 
@@ -25,17 +25,16 @@ public class AoC2015Day05Tests {
         Assert.AreEqual(238, result);
         Console.WriteLine($"Result: {result}");
     }
-    
+
     [TestCase("qjhvhtzxzqqjkmpb", 1)]
     [TestCase("xxyxx", 1)]
     [TestCase("uurcxstgmygtbstg", 0)]
     [TestCase("ieodomkazucvgmuy", 0)]
     public void SamplesSolution2(string input, long expect) {
         var instance = new AoC2015Day05();
-        instance.Setup(new []{input});
+        instance.Setup(new[] { input });
         Assert.AreEqual(expect, instance.Solution2());
     }
-    
 
     [Test]
     public void Solution2Test() {

@@ -8,7 +8,7 @@ public class AoC2015Day06 {
     private const int HEIGHT = 1000;
     private Instruction[] instructions;
 
-    struct Instruction {
+    private struct Instruction {
         public Mode SelectedMode;
         public int X1;
         public int X2;

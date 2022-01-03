@@ -25,7 +25,7 @@ public class AoC2015Day25 {
         end += column - 2;
         ulong prevRow = first;
         for (ulong i = 1; i <= end; i++) {
-            prevRow = (prevRow * firstOp) % secondOp;
+            prevRow = prevRow * firstOp % secondOp;
         }
 
         return (long)prevRow;

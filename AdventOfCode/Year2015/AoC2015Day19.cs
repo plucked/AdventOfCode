@@ -21,7 +21,7 @@ public class AoC2015Day19 {
     }
 
     public void Setup(string[]? customInput = null) {
-        var lines = (customInput ?? File.ReadAllLines("Year2015/2015_19_input.txt"));
+        var lines = customInput ?? File.ReadAllLines("Year2015/2015_19_input.txt");
 
         for (int i = 0; i < lines.Length - 2; i++) {
             var line = lines[i];
@@ -81,7 +81,7 @@ public class AoC2015Day19 {
                     if (replacement.From == "e" && molecule != replacement.To) {
                         continue;
                     }
-                    
+
                     var findIndex = molecule.IndexOf(replacement.To, startIndex);
                     if (findIndex == -1) {
                         continue;
@@ -93,7 +93,7 @@ public class AoC2015Day19 {
                 }
             }
         }
-        
+
         return steps;
     }
 }

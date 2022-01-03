@@ -19,7 +19,7 @@ namespace AdventOfCode.Year2015;
 /// </summary>
 public class AoC2015Day04 {
     private byte[] input;
-    
+
     [GlobalSetup(Targets = new[] { nameof(Solution1), nameof(Solution2) })]
     public void BenchmarkSetup() {
         Setup();
@@ -38,7 +38,7 @@ public class AoC2015Day04 {
     public long Solution2() {
         return GetNonce(false);
     }
-    
+
     private unsafe long GetNonce(bool fiveZeroes) {
         var buffer = stackalloc byte[64];
         var hashResultBuffer = stackalloc byte[16];
@@ -52,7 +52,7 @@ public class AoC2015Day04 {
             for (int i = 0; i < t.Length; i++) {
                 buffer[i + input.Length] = t[i];
             }
-            
+
             var bufferSpan = new ReadOnlySpan<byte>(buffer, input.Length + t.Length);
             var hashResult = new Span<byte>(hashResultBuffer, 16);
             MD5.HashData(bufferSpan, hashResult);
@@ -62,5 +62,5 @@ public class AoC2015Day04 {
 
             ++nonce;
         }
-    } 
+    }
 }

@@ -55,7 +55,7 @@ public class AoC2015Day05 {
             var lastLetter1 = '!';
             var lastLetter2 = '!';
             var foundPair = false;
-            
+
             for (int i = 0; i < line.Length - 1; i++) {
                 var a1 = line[i];
                 var a2 = line[i + 1];
