@@ -1,10 +1,12 @@
 using System.Text.RegularExpressions;
+using AdventOfCode.Utilities;
 using BenchmarkDotNet.Attributes;
 
 namespace AdventOfCode.Year2015;
 
 public class AoC2015Day14 {
     private Reindeer[] input;
+    private int seconds;
 
     private struct Reindeer {
         public string Name;
@@ -13,13 +15,8 @@ public class AoC2015Day14 {
         public int RestTime;
     }
 
-    [GlobalSetup(Targets = new[] { nameof(Solution1), nameof(Solution2) })]
-    public void BenchmarkSetup() {
-        Setup();
-    }
-
-    public void Setup(string[]? lines = null) {
-        lines ??= File.ReadAllLines("Year2015/2015_14_input.txt");
+    public AoC2015Day14(string[]? lines = null, int seconds = 2503) {
+        lines ??= EmbeddedInput.ReadAllLines("Year2015/2015_14_input.txt");
         var regex = new Regex("(\\w*) can fly (\\d+) km\\/s for (\\d+) seconds, but then must rest for (\\d+) seconds.", RegexOptions.Compiled);
         input = new Reindeer[lines.Length];
         var index = 0;
@@ -29,10 +26,12 @@ public class AoC2015Day14 {
                     Name = match.Groups[1].Value, Speed = int.Parse(match.Groups[2].Value), MoveTime = int.Parse(match.Groups[3].Value), RestTime = int.Parse(match.Groups[4].Value)
             };
         }
+
+        this.seconds = seconds;
     }
 
     [Benchmark]
-    public long Solution1(int seconds = 2503) {
+    public long Solution1() {
         var distance = new int[input.Length];
 
         for (int reindeerIdx = 0; reindeerIdx < input.Length; reindeerIdx++) {
@@ -50,7 +49,7 @@ public class AoC2015Day14 {
     }
 
     [Benchmark]
-    public long Solution2(int seconds = 2503) {
+    public long Solution2() {
         var distance = new int[input.Length];
         var points = new int[input.Length];
         var state = new int[input.Length];

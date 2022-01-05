@@ -1,21 +1,29 @@
+using AdventOfCode.Utilities;
 using BenchmarkDotNet.Attributes;
 
 namespace AdventOfCode.Year2015;
 
-public unsafe class AoC2015Day02 {
-    private (long l, long w, long h)[] input = null!;
+public class AoC2015Day02 {
+    private Box[] input;
 
-    [GlobalSetup(Targets = new[] { nameof(Solution1), nameof(Solution2) })]
-    public void BenchmarkSetup() {
-        Setup();
+    private struct Box {
+        public long Length;
+        public long Width;
+        public long Height;
+
+        public Box(long length, long width, long height) {
+            Length = length;
+            Width = width;
+            Height = height;
+        }
     }
 
-    public void Setup(string[]? customInput = null) {
-        var lines = customInput ?? File.ReadAllLines("Year2015/2015_02_input.txt");
+    public AoC2015Day02(string[]? customInput = null) {
+        var lines = customInput ?? EmbeddedInput.ReadAllLines("Year2015/2015_02_input.txt");
         input = lines.Select(
                              line => {
                                  var split = line.Split('x');
-                                 return (long.Parse(split[0]), long.Parse(split[1]), long.Parse(split[2]));
+                                 return new Box(long.Parse(split[0]), long.Parse(split[1]), long.Parse(split[2]));
                              })
                      .ToArray();
     }
@@ -24,9 +32,9 @@ public unsafe class AoC2015Day02 {
     public long Solution1() {
         var total = 0L;
         foreach (var t in input) {
-            var side1 = 2 * t.l * t.w;
-            var side2 = 2 * t.w * t.h;
-            var side3 = 2 * t.h * t.l;
+            var side1 = 2 * t.Length * t.Width;
+            var side2 = 2 * t.Width * t.Height;
+            var side3 = 2 * t.Height * t.Length;
             var area = side1 + side2 + side3;
             var extra = Math.Min(side1, Math.Min(side2, side3));
             area += extra / 2;
@@ -41,9 +49,9 @@ public unsafe class AoC2015Day02 {
         var total = 0L;
         var sides = new long[3];
         foreach (var t in input) {
-            sides[0] = t.l;
-            sides[1] = t.w;
-            sides[2] = t.h;
+            sides[0] = t.Length;
+            sides[1] = t.Width;
+            sides[2] = t.Height;
             Array.Sort(sides);
             total += sides[0] * 2 + sides[1] * 2;
             total += sides[0] * sides[1] * sides[2];

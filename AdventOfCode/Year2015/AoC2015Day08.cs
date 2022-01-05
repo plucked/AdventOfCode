@@ -1,3 +1,4 @@
+using AdventOfCode.Utilities;
 using BenchmarkDotNet.Attributes;
 
 namespace AdventOfCode.Year2015;
@@ -5,13 +6,8 @@ namespace AdventOfCode.Year2015;
 public class AoC2015Day08 {
     private string[] input;
 
-    [GlobalSetup(Targets = new[] { nameof(Solution1), nameof(Solution2) })]
-    public void BenchmarkSetup() {
-        Setup();
-    }
-
-    public void Setup(string[]? customInput = null) {
-        input = customInput ?? File.ReadAllLines("Year2015/2015_08_input.txt");
+    public AoC2015Day08(string[]? customInput = null) {
+        input = customInput ?? EmbeddedInput.ReadAllLines("Year2015/2015_08_input.txt");
     }
 
     [Benchmark]

@@ -15,15 +15,13 @@ public class AoC2015Day12Tests {
     [TestCase("[]", 0)]
     [TestCase("{}", 0)]
     public void Solution1Example(string input, long expect) {
-        var instance = new AoC2015Day12();
-        instance.Setup(input);
+        var instance = new AoC2015Day12(input);
         Assert.AreEqual(expect, instance.Solution1());
     }
 
     [Test]
     public void Solution1Test() {
         var instance = new AoC2015Day12();
-        instance.Setup();
         var result = instance.Solution1();
         Assert.AreEqual(191164, result);
         Console.WriteLine($"Result: {result}");
@@ -39,15 +37,13 @@ public class AoC2015Day12Tests {
     [TestCase("{\"a\":{\"b\":{\"d\":1},\"c\":\"red\",\"e\":2},\"f\":3}", 3)]
     [TestCase("{\"a\":{\"b\":\"red\",\"c\":3},\"d\":\"red\",\"e\":3}", 0)]
     public void Solution2Example(string input, long expect) {
-        var instance = new AoC2015Day12();
-        instance.Setup(input);
+        var instance = new AoC2015Day12(input);
         Assert.AreEqual(expect, instance.Solution2());
     }
 
     [Test]
     public void Solution2Test() {
         var instance = new AoC2015Day12();
-        instance.Setup();
         var result = instance.Solution2();
         Assert.AreEqual(87842, result);
         Console.WriteLine($"Result: {result}");

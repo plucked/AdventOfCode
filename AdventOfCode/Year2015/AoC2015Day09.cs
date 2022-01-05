@@ -1,4 +1,5 @@
 using System.Numerics;
+using AdventOfCode.Utilities;
 using BenchmarkDotNet.Attributes;
 
 namespace AdventOfCode.Year2015;
@@ -17,15 +18,10 @@ public class AoC2015Day09 {
         public int Distance;
     }
 
-    [GlobalSetup(Targets = new[] { nameof(Solution1), nameof(Solution2) })]
-    public void BenchmarkSetup() {
-        Setup();
-    }
-
-    public void Setup(string[]? customInput = null) {
+    public AoC2015Day09(string[]? customInput = null) {
         var uniqueId = new Dictionary<string, int>();
         int nextIndex = 1;
-        var lines = customInput ?? File.ReadAllLines("Year2015/2015_09_input.txt");
+        var lines = customInput ?? EmbeddedInput.ReadAllLines("Year2015/2015_09_input.txt");
         input = lines.Select(
                              line => {
                                  var split1 = line.Split(" to ");

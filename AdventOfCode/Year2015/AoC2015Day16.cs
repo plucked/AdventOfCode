@@ -1,5 +1,5 @@
-using System.Text;
 using System.Text.RegularExpressions;
+using AdventOfCode.Utilities;
 using BenchmarkDotNet.Attributes;
 
 namespace AdventOfCode.Year2015;
@@ -77,24 +77,10 @@ public class AoC2015Day16 {
 
             return matches == 3;
         }
-
-        public override string ToString() {
-            var sb = new StringBuilder();
-            for (int i = 0; i < 10; i++) {
-                sb.Append($"{lookup[i]}={Compounds[i]} ");
-            }
-
-            return sb.ToString();
-        }
     }
 
-    [GlobalSetup(Targets = new[] { nameof(Solution1), nameof(Solution2) })]
-    public void BenchmarkSetup() {
-        Setup();
-    }
-
-    public unsafe void Setup() {
-        var lines = File.ReadAllLines("Year2015/2015_16_input.txt");
+    public AoC2015Day16() {
+        var lines = EmbeddedInput.ReadAllLines("Year2015/2015_16_input.txt");
         var regex = new Regex("Sue (\\d+)\\: (\\w+)\\: (\\d+)\\, (\\w+)\\: (\\d+)\\, (\\w+)\\: (\\d+)", RegexOptions.Compiled);
         foreach (var line in lines) {
             var match = regex.Match(line);
@@ -127,8 +113,6 @@ public class AoC2015Day16 {
     public long Solution2() {
         for (int i = 0; i < aunts.Length; i++) {
             if (aunts[i].MatchSolution2(masterAunt)) {
-                Console.WriteLine(masterAunt);
-                Console.WriteLine(aunts[i]);
                 return i + 1;
             }
         }

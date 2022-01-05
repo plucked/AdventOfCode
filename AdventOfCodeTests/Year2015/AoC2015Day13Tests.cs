@@ -23,15 +23,13 @@ public class AoC2015Day13Tests {
             },
             330)]
     public void Solution1Example(string[] input, long expect) {
-        var instance = new AoC2015Day13();
-        instance.Setup(input);
+        var instance = new AoC2015Day13(input);
         Assert.AreEqual(expect, instance.Solution1());
     }
 
     [Test]
     public void Solution1Test() {
         var instance = new AoC2015Day13();
-        instance.Setup();
         var result = instance.Solution1();
         Assert.AreEqual(709, result);
         Console.WriteLine($"Result: {result}");
@@ -40,7 +38,6 @@ public class AoC2015Day13Tests {
     [Test]
     public void Solution2Test() {
         var instance = new AoC2015Day13();
-        instance.Setup();
         var result = instance.Solution2();
         Assert.AreEqual(668, result);
         Console.WriteLine($"Result: {result}");

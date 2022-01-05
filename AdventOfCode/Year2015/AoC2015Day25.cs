@@ -3,14 +3,6 @@ using BenchmarkDotNet.Attributes;
 namespace AdventOfCode.Year2015;
 
 public class AoC2015Day25 {
-    [GlobalSetup(Targets = new[] { nameof(Solution1) })]
-    public void BenchmarkSetup() {
-        Setup();
-    }
-
-    public void Setup() {
-    }
-
     [Benchmark]
     public long Solution1() {
         ulong row = 3010;

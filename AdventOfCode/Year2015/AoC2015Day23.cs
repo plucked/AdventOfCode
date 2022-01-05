@@ -1,9 +1,11 @@
+using AdventOfCode.Utilities;
 using BenchmarkDotNet.Attributes;
 
 namespace AdventOfCode.Year2015;
 
 public class AoC2015Day23 {
     private Instruction[] instructions;
+    private int resultOfRegister = 1;
 
     private struct Instruction {
         public InstructionType InstType;
@@ -24,13 +26,8 @@ public class AoC2015Day23 {
         }
     }
 
-    [GlobalSetup(Targets = new[] { nameof(Solution1), nameof(Solution2) })]
-    public void BenchmarkSetup() {
-        Setup();
-    }
-
-    public void Setup(string[]? customInput = null) {
-        var lines = customInput ?? File.ReadAllLines("Year2015/2015_23_input.txt");
+    public AoC2015Day23(string[]? customInput = null, int resultOfRegister = 1) {
+        var lines = customInput ?? EmbeddedInput.ReadAllLines("Year2015/2015_23_input.txt");
         instructions = lines.Select(
                                     line => {
                                         var code = line.Substring(0, 3);
@@ -58,10 +55,11 @@ public class AoC2015Day23 {
                                         }
                                     })
                             .ToArray();
+        this.resultOfRegister = resultOfRegister;
     }
 
     [Benchmark]
-    public long Solution1(int resultOfRegister = 1) {
+    public long Solution1() {
         return Run(new int[2], resultOfRegister);
     }
 

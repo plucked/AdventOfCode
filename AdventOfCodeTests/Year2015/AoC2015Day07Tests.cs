@@ -8,8 +8,7 @@ namespace AdventOfCodeTests.Year2015;
 public class AoC2015Day07Tests {
     [Test]
     public void Solution1Example() {
-        var instance = new AoC2015Day07();
-        instance.Setup(
+        var instance = new AoC2015Day07(
                 @"123 -> x
 456 -> y
 x AND y -> d
@@ -18,7 +17,6 @@ x LSHIFT 2 -> f
 y RSHIFT 2 -> g
 NOT x -> h
 NOT y -> i".Split(Environment.NewLine));
-
         var result = instance.Solution1();
         foreach (var v in result) {
             Console.WriteLine($"{v.Key}={v.Value}");
@@ -37,7 +35,6 @@ NOT y -> i".Split(Environment.NewLine));
     [Test]
     public void Solution1Test() {
         var instance = new AoC2015Day07();
-        instance.Setup();
         var result = instance.Solution1()["a"];
         Assert.AreEqual(46065, result);
         Console.WriteLine($"Result: {result}");
@@ -46,7 +43,6 @@ NOT y -> i".Split(Environment.NewLine));
     [Test]
     public void Solution2Test() {
         var instance = new AoC2015Day07();
-        instance.Setup();
         var result = instance.Solution2()["a"];
         Assert.AreEqual(14134, result);
         Console.WriteLine($"Result: {result}");

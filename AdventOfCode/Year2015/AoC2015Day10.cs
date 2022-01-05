@@ -6,12 +6,7 @@ public class AoC2015Day10 {
     private byte[] input;
     private int iterations;
 
-    [GlobalSetup(Targets = new[] { nameof(Solution1) })]
-    public void BenchmarkSetup() {
-        Setup();
-    }
-
-    public void Setup(string? input = null, int iterations = 50) {
+    public AoC2015Day10(string? input = null, int iterations = 50) {
         this.input = (input ?? "1321131112").Select(c => (byte)(c - '0')).ToArray();
         this.iterations = iterations;
     }

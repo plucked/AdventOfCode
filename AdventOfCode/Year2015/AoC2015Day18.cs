@@ -1,3 +1,4 @@
+using AdventOfCode.Utilities;
 using BenchmarkDotNet.Attributes;
 
 namespace AdventOfCode.Year2015;
@@ -9,14 +10,11 @@ public class AoC2015Day18 {
     private int width;
     private int height;
     private bool[,] field;
+    private int iterations;
+    private bool fixedCornerLights;
 
-    [GlobalSetup(Targets = new[] { nameof(Solution1), nameof(Solution2) })]
-    public void BenchmarkSetup() {
-        Setup();
-    }
-
-    public void Setup(string[]? customInput = null) {
-        var lines = customInput ?? File.ReadAllLines("Year2015/2015_18_input.txt");
+    public AoC2015Day18(string[]? customInput = null, int iterations = 100, bool fixedCornerLights = false) {
+        var lines = customInput ?? EmbeddedInput.ReadAllLines("Year2015/2015_18_input.txt");
         height = lines.Length;
         width = lines[0].Length;
         field = new bool[height + 2, width + 2]; // add some space above, right, left and below so we can skip some checks
@@ -25,10 +23,13 @@ public class AoC2015Day18 {
                 field[y + 1, x + 1] = lines[y][x] != '.';
             }
         }
+
+        this.iterations = iterations;
+        this.fixedCornerLights = fixedCornerLights;
     }
 
     [Benchmark]
-    public long Solution1(int iterations = 100, bool fixedCornerLights = false) {
+    public long Solution1() {
         var swap = new bool[field.GetLength(0), field.GetLength(1)];
 
         if (fixedCornerLights) {
@@ -87,7 +88,8 @@ public class AoC2015Day18 {
     }
 
     [Benchmark]
-    public long Solution2(int iterations = 100) {
-        return Solution1(iterations, true);
+    public long Solution2() {
+        fixedCornerLights = true;
+        return Solution1();
     }
 }

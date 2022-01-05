@@ -44,8 +44,8 @@ public class AoC2015Day20Tests {
     [TestCase(960, 42)]
     [TestCase(1240, 48)]
     public void Solution1Example(int presents, long expected) {
-        var instance = new AoC2015Day20();
-        Assert.AreEqual(expected, instance.Solution1(presents, true));
+        var instance = new AoC2015Day20(presents, true);
+        Assert.AreEqual(expected, instance.Solution1());
     }
 
     [Test]
@@ -59,7 +59,6 @@ public class AoC2015Day20Tests {
     [Test]
     public void Solution2Test() {
         var instance = new AoC2015Day20();
-        instance.Setup();
         var result = instance.Solution2();
         Assert.AreEqual(705600, result);
         Console.WriteLine($"Result: {result}");

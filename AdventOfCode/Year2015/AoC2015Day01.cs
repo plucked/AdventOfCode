@@ -1,27 +1,19 @@
+using System.Reflection;
+using AdventOfCode.Utilities;
 using BenchmarkDotNet.Attributes;
 
 namespace AdventOfCode.Year2015;
 
 public class AoC2015Day01 {
-    private byte[] input;
+    private readonly byte[] input;
 
-    [GlobalSetup(Targets = new[] { nameof(Solution1), nameof(Solution2) })]
-    public void BenchmarkSetup() {
-        Setup();
-    }
-
-    public void Setup(string? customInput = null) {
-        input = (customInput ?? File.ReadAllText("Year2015/2015_01_input.txt")).Select(c => Convert.ToByte(c)).ToArray();
+    public AoC2015Day01(string? customInput = null) {
+        input = (customInput ?? EmbeddedInput.ReadAllText("Year2015/2015_01_input.txt")).Select(Convert.ToByte).ToArray();
     }
 
     [Benchmark]
     public long Solution1() {
-        var result = 0L;
-        foreach (var c in input) {
-            result += c == '(' ? 1 : -1;
-        }
-
-        return result;
+        return input.Count(c => c == '(') - input.Count(c => c == ')');
     }
 
     [Benchmark]

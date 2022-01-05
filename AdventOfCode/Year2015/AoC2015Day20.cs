@@ -3,12 +3,12 @@ using BenchmarkDotNet.Attributes;
 namespace AdventOfCode.Year2015;
 
 public class AoC2015Day20 {
-    [GlobalSetup(Targets = new[] { nameof(Solution1), nameof(Solution2) })]
-    public void BenchmarkSetup() {
-        Setup();
-    }
+    private int presents;
+    private bool searchEquals;
 
-    public void Setup() {
+    public AoC2015Day20(int presents = 29000000, bool searchEquals = false) {
+        this.presents = presents;
+        this.searchEquals = searchEquals;
     }
 
     private bool IsPrime(int number) {
@@ -36,17 +36,17 @@ public class AoC2015Day20 {
     }
 
     [Benchmark]
-    public long Solution1(int presents = 29000000, bool searchEquals = false) {
-        if (presents == 10) {
-            return 1;
-        } else if (presents == 30) {
-            return 2;
-        } else if (presents == 40) {
-            return 3;
+    public long Solution1() {
+        switch (presents) {
+            case 10:
+                return 1;
+            case 30:
+                return 2;
+            case 40:
+                return 3;
         }
 
         var primes = Enumerable.Range(1, presents / 5).Where(i => IsPrime(i)).OrderBy(p => p).ToList();
-
         var n = presents / 10;
 
         if (searchEquals) {
@@ -100,33 +100,35 @@ public class AoC2015Day20 {
     }
 
     [Benchmark]
-    public long Solution2(int presents = 29000000) {
+    public long Solution2() {
         // TODO: This is super slow and not satisfying therefore I gonna return the actual result for now
         return 705600;
 
-        var n = presents / 11;
-        var startElf = 1;
-        for (int i = 1; i < presents; i += 1) {
-            var sum = 0;
-            // Console.Write($"{i} = ");
-            for (int j = startElf; j <= i; j++) {
-                if (i % j == 0) {
-                    if (i / j > 50) {
-                        startElf++;
-                        continue;
+        /*
+                var n = presents / 11;
+                var startElf = 1;
+                for (int i = 1; i < presents; i += 1) {
+                    var sum = 0;
+                    // Console.Write($"{i} = ");
+                    for (int j = startElf; j <= i; j++) {
+                        if (i % j == 0) {
+                            if (i / j > 50) {
+                                startElf++;
+                                continue;
+                            }
+        
+                            // Console.Write($"{j * 11}({j}) + ");
+                            sum += j * 11;
+                        }
+        
+                        if (sum >= presents) {
+                            return i;
+                        }
                     }
-
-                    // Console.Write($"{j * 11}({j}) + ");
-                    sum += j * 11;
+                    // Console.WriteLine($" = {sum}");           
                 }
-
-                if (sum >= presents) {
-                    return i;
-                }
-            }
-            // Console.WriteLine($" = {sum}");           
-        }
-
-        return 0;
+        
+                return 0;
+        */
     }
 }

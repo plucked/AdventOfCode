@@ -1,24 +1,22 @@
 using System.Numerics;
+using AdventOfCode.Utilities;
 using BenchmarkDotNet.Attributes;
 
 namespace AdventOfCode.Year2015;
 
 public class AoC2015Day17 {
     private int[] buckets;
+    private int liters;
 
-    [GlobalSetup(Targets = new[] { nameof(Solution1), nameof(Solution2) })]
-    public void BenchmarkSetup() {
-        Setup();
-    }
-
-    public void Setup(int[]? customInput = null) {
-        buckets = customInput ?? File.ReadAllLines("Year2015/2015_17_input.txt").Select(line => int.Parse(line)).ToArray();
+    public AoC2015Day17(int[]? customInput = null, int liters = 150) {
+        buckets = customInput ?? EmbeddedInput.ReadAllLines("Year2015/2015_17_input.txt").Select(line => int.Parse(line)).ToArray();
         // sort from biggest to smallest
         Array.Sort(buckets, (a, b) => -a.CompareTo(b));
+        this.liters = liters;
     }
 
     [Benchmark]
-    public long Solution1(long liters = 150) {
+    public long Solution1() {
         long result = 0;
         // amount of possible combinations
         int max = 1 << buckets.Length;
@@ -50,7 +48,7 @@ public class AoC2015Day17 {
     }
 
     [Benchmark]
-    public long Solution2(long liters = 150) {
+    public long Solution2() {
         long result = 0;
         uint fewestBuckets = uint.MaxValue;
         // amount of possible combinations

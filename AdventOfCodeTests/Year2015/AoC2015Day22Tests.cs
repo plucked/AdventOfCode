@@ -19,7 +19,6 @@ public class AoC2015Day22Tests {
     [Test]
     public void Solution2Test() {
         var instance = new AoC2015Day22();
-        instance.Setup();
         var result = instance.Solution2();
         Assert.AreEqual(1309, result);
         Console.WriteLine($"Result: {result}");

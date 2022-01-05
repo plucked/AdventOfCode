@@ -20,17 +20,12 @@ namespace AdventOfCode.Year2015;
 public class AoC2015Day04 {
     private byte[] input;
 
-    [GlobalSetup(Targets = new[] { nameof(Solution1), nameof(Solution2) })]
-    public void BenchmarkSetup() {
-        Setup();
-    }
-
-    public void Setup(string? customInput = null) {
+    public AoC2015Day04(string? customInput = null) {
         input = Encoding.UTF8.GetBytes(customInput ?? "iwrupvqb");
     }
 
     [Benchmark]
-    public unsafe long Solution1() {
+    public long Solution1() {
         return GetNonce(true);
     }
 

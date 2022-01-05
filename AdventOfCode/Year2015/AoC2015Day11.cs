@@ -6,12 +6,7 @@ namespace AdventOfCode.Year2015;
 public class AoC2015Day11 {
     private byte[] input;
 
-    [GlobalSetup(Targets = new[] { nameof(Solution1), nameof(Solution2) })]
-    public void BenchmarkSetup() {
-        Setup();
-    }
-
-    public void Setup(string? customInput = null) {
+    public AoC2015Day11(string? customInput = null) {
         input = Encoding.UTF8.GetBytes(customInput ?? "hxbxwxba");
     }
 

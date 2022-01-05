@@ -1,4 +1,5 @@
 using System.Text.RegularExpressions;
+using AdventOfCode.Utilities;
 using BenchmarkDotNet.Attributes;
 
 namespace AdventOfCode.Year2015;
@@ -19,13 +20,8 @@ public class AoC2015Day15 {
         }
     }
 
-    [GlobalSetup(Targets = new[] { nameof(Solution1), nameof(Solution2) })]
-    public void BenchmarkSetup() {
-        Setup();
-    }
-
-    public void Setup(string[]? lines = null) {
-        lines ??= File.ReadAllLines("Year2015/2015_15_input.txt");
+    public AoC2015Day15(string[]? lines = null) {
+        lines ??= EmbeddedInput.ReadAllLines("Year2015/2015_15_input.txt");
         var regex = new Regex("^\\w+: capacity (\\-?\\d+), durability (\\-?\\d+), flavor (\\-?\\d+), texture (\\-?\\d+), calories (\\-?\\d+)", RegexOptions.Compiled);
         input = new Ingredient[lines.Length];
         var index = 0;
@@ -41,7 +37,7 @@ public class AoC2015Day15 {
     }
 
     [Benchmark]
-    public unsafe long Solution1() {
+    public long Solution1() {
         return Run(null);
     }
 

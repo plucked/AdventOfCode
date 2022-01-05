@@ -1,4 +1,5 @@
 using System.Text.RegularExpressions;
+using AdventOfCode.Utilities;
 using BenchmarkDotNet.Attributes;
 
 namespace AdventOfCode.Year2015;
@@ -31,13 +32,8 @@ public class AoC2015Day06 {
         }
     }
 
-    [GlobalSetup(Targets = new[] { nameof(Solution1), nameof(Solution2) })]
-    public void BenchmarkSetup() {
-        Setup();
-    }
-
-    public void Setup(string[]? customInput = null) {
-        var lines = customInput ?? File.ReadAllLines("Year2015/2015_06_input.txt");
+    public AoC2015Day06(string[]? customInput = null) {
+        var lines = customInput ?? EmbeddedInput.ReadAllLines("Year2015/2015_06_input.txt");
         var regex = new Regex("(on|off|toggle) (\\d*),(\\d*) through (\\d*),(\\d*)");
         instructions = lines.Select(
                                     line => {

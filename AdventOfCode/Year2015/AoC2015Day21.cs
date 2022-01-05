@@ -50,14 +50,6 @@ public class AoC2015Day21 {
         }
     }
 
-    [GlobalSetup(Targets = new[] { nameof(Solution1), nameof(Solution2) })]
-    public void BenchmarkSetup() {
-        Setup();
-    }
-
-    public void Setup() {
-    }
-
     [Benchmark]
     public long Solution1() {
         int minGold = int.MaxValue;

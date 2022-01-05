@@ -1,4 +1,5 @@
 using System.Numerics;
+using AdventOfCode.Utilities;
 using BenchmarkDotNet.Attributes;
 
 namespace AdventOfCode.Year2015;
@@ -6,13 +7,8 @@ namespace AdventOfCode.Year2015;
 public class AoC2015Day24 {
     public long[] packages;
 
-    [GlobalSetup(Targets = new[] { nameof(Solution1), nameof(Solution2) })]
-    public void BenchmarkSetup() {
-        Setup();
-    }
-
-    public void Setup(long[]? customInput = null) {
-        packages = customInput ?? File.ReadAllLines("Year2015/2015_24_input.txt").Select(l => long.Parse(l)).ToArray();
+    public AoC2015Day24(long[]? customInput = null) {
+        packages = customInput ?? EmbeddedInput.ReadAllLines("Year2015/2015_24_input.txt").Select(l => long.Parse(l)).ToArray();
         Array.Sort(packages);
     }
 

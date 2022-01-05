@@ -6,6 +6,7 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+        <WarningsAsErrors>true</WarningsAsErrors>
     </PropertyGroup>
 
     <ItemGroup>
@@ -14,9 +15,11 @@
 
     <ItemGroup>
         <None Remove="Year2015\*_input.txt"/>
-        <Content Include="Year2015\*_input.txt">
-            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-        </Content>
+        <EmbeddedResource Include="Year2015\*_input.txt"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <Folder Include="Year2016"/>
     </ItemGroup>
 
 </Project>
