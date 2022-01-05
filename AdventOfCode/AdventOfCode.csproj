@@ -14,8 +14,8 @@
     </ItemGroup>
 
     <ItemGroup>
-        <None Remove="Year2015\*_input.txt"/>
-        <EmbeddedResource Include="Year2015\*_input.txt"/>
+        <None Remove="Year*\*_input.txt"/>
+        <EmbeddedResource Include="Year*\*_input.txt"/>
     </ItemGroup>
 
     <ItemGroup>
