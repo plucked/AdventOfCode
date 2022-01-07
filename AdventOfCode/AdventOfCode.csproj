@@ -18,8 +18,4 @@
         <EmbeddedResource Include="Year*\*_input.txt"/>
     </ItemGroup>
 
-    <ItemGroup>
-        <Folder Include="Year2016"/>
-    </ItemGroup>
-
 </Project>
