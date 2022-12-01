@@ -34,12 +34,18 @@ public class AoC2015Day21 {
         public int HitPoints = 0;
         public int Damage = 0;
         public int Armor = 0;
+
+        public CharacterStats() {
+        }
     }
 
     private struct ItemStats {
         public int Gold = 0;
         public int Damage = 0;
         public int Armor = 0;
+
+        public ItemStats() {
+        }
 
         public ItemStats Add(ItemStats? stats) {
             if (stats == null) {
