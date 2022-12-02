@@ -30,7 +30,7 @@ public class AoC2022Day02Tests {
     public void Solution2Test() {
         var instance = new AoC2022Day02();
         var result = instance.Solution2();
-        // Assert.AreEqual(212836, result);
+        Assert.AreEqual(10398, result);
         Console.WriteLine($"Result: {result}");
     }
 }
