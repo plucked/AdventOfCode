@@ -6,20 +6,20 @@ namespace AdventOfCode.Year2022;
 
 public class AoC2022Day04 {
     private struct Range {
-        public int From;
-        public int To;
+        private readonly int from;
+        private readonly int to;
 
         public Range(int from, int to) {
-            From = from;
-            To = to;
+            this.from = from;
+            this.to = to;
         }
 
         public bool Contains(Range other) {
-            return From <= other.From && To >= other.To;
+            return from <= other.from && to >= other.to;
         }
 
         public bool Overlaps(Range other) {
-            return From <= other.From && To >= other.From;
+            return from <= other.from && to >= other.from;
         }
     }
 
