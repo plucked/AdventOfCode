@@ -1,4 +1,3 @@
-using System.Text;
 using System.Text.RegularExpressions;
 using AdventOfCode.Utilities;
 using BenchmarkDotNet.Attributes;
@@ -10,27 +9,10 @@ public class AoC2022Day07 {
 
     private class Dir {
         public string Name { get; set; }
-        public Dictionary<string, Dir> SubDirs { get; set; } = new();
+        public Dictionary<string, Dir> SubDirs { get; } = new();
         public Dir Parent { get; set; }
         public long FileSize { get; set; }
         public long TotalSize => FileSize + SubDirs.Values.Sum(d => d.TotalSize);
-
-        public string Print(int indent = 0) {
-            var sb = new StringBuilder();
-            sb.Append(' ', indent);
-            sb.Append(Name);
-            sb.Append(" (");
-            sb.Append(FileSize);
-            sb.Append("/");
-            sb.Append(TotalSize);
-            sb.Append(")");
-            sb.AppendLine();
-            foreach (var child in SubDirs) {
-                sb.Append(child.Value.Print(indent + 2));
-            }
-
-            return sb.ToString();
-        }
     }
 
     public AoC2022Day07(string? customInput = null) {
@@ -65,11 +47,8 @@ public class AoC2022Day07 {
             var fileSizeMatch = fileSizeRegex.Match(s);
             if (fileSizeMatch.Success) {
                 current.FileSize += long.Parse(fileSizeMatch.Value);
-                ;
             }
         }
-
-        // Console.WriteLine(root.Print());
     }
 
     [Benchmark]
@@ -97,7 +76,7 @@ public class AoC2022Day07 {
     public long Solution2() {
         var totalDiskSize = 70_000_000;
         var requiredFreeSpace = 30_000_000;
-        var freeSpace = (totalDiskSize - root.TotalSize);
+        var freeSpace = totalDiskSize - root.TotalSize;
         var spaceToFree = requiredFreeSpace - freeSpace;
 
         var closest = long.MaxValue;
