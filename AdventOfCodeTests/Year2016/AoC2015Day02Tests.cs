@@ -15,7 +15,7 @@ UUUUD",
     public void Solution1Example(string input, long expected) {
         var instance = new AoC2016Day02(input.Split(Environment.NewLine));
         var result = instance.Solution1();
-        Assert.AreEqual(expected, result);
+        Assert.That(expected, Is.EqualTo(result));
         Console.WriteLine($"Result: {result}");
     }
 
@@ -23,7 +23,7 @@ UUUUD",
     public void Solution1Test() {
         var instance = new AoC2016Day02();
         var result = instance.Solution1();
-        Assert.AreEqual(24862, result);
+        Assert.That(24862, Is.EqualTo(result));
         Console.WriteLine($"Result: {result}");
     }
 
@@ -36,7 +36,7 @@ UUUUD",
     public void Solution2Example(string input, string expected) {
         var instance = new AoC2016Day02(input.Split(Environment.NewLine));
         var result = instance.Solution2();
-        Assert.AreEqual(expected, result);
+        Assert.That(expected, Is.EqualTo(result));
         Console.WriteLine($"Result: {result}");
     }
 
@@ -44,7 +44,7 @@ UUUUD",
     public void Solution2Test() {
         var instance = new AoC2016Day02();
         var result = instance.Solution2();
-        Assert.AreEqual("46C91", result);
+        Assert.That("46C91", Is.EqualTo(result));
         Console.WriteLine($"Result: {result}");
     }
 }

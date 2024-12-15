@@ -9,7 +9,7 @@ public class AoC2022Day09Tests {
     [TestCase(null, 6018)]
     public void Solution1(string input, long expect) {
         var instance = new AoC2022Day09(input);
-        Assert.AreEqual(expect, instance.Solution1());
+        Assert.That(expect, Is.EqualTo(instance.Solution1()));
     }
 
     [TestCase("R 4\nU 4\nL 3\nD 1\nR 4\nD 1\nL 5\nR 2", 1)]
@@ -17,6 +17,6 @@ public class AoC2022Day09Tests {
     [TestCase(null, 2619)]
     public void Solution2(string input, long expect) {
         var instance = new AoC2022Day09(input);
-        Assert.AreEqual(expect, instance.Solution2());
+        Assert.That(expect, Is.EqualTo(instance.Solution2()));
     }
 }

@@ -45,14 +45,14 @@ public class AoC2015Day20Tests {
     [TestCase(1240, 48)]
     public void Solution1Example(int presents, long expected) {
         var instance = new AoC2015Day20(presents, true);
-        Assert.AreEqual(expected, instance.Solution1());
+        Assert.That(expected, Is.EqualTo(instance.Solution1()));
     }
 
     [Test]
     public void Solution1Test() {
         var instance = new AoC2015Day20();
         var result = instance.Solution1();
-        Assert.AreEqual(665280, result);
+        Assert.That(665280, Is.EqualTo(result));
         Console.WriteLine($"Result: {result}");
     }
 
@@ -60,7 +60,7 @@ public class AoC2015Day20Tests {
     public void Solution2Test() {
         var instance = new AoC2015Day20();
         var result = instance.Solution2();
-        Assert.AreEqual(705600, result);
+        Assert.That(705600, Is.EqualTo(result));
         Console.WriteLine($"Result: {result}");
     }
 }

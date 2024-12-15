@@ -11,14 +11,14 @@ public class AoC2015Day14Tests {
             1120)]
     public void Solution1Example(string[] input, long expect) {
         var instance = new AoC2015Day14(input, 1000);
-        Assert.AreEqual(expect, instance.Solution1());
+        Assert.That(expect, Is.EqualTo(instance.Solution1()));
     }
 
     [Test]
     public void Solution1Test() {
         var instance = new AoC2015Day14();
         var result = instance.Solution1();
-        Assert.AreEqual(2655, result);
+        Assert.That(2655, Is.EqualTo(result));
         Console.WriteLine($"Result: {result}");
     }
 
@@ -27,14 +27,14 @@ public class AoC2015Day14Tests {
             689)]
     public void Solution2Example(string[] input, long expect) {
         var instance = new AoC2015Day14(input, 1000);
-        Assert.AreEqual(expect, instance.Solution2());
+        Assert.That(expect, Is.EqualTo(instance.Solution2()));
     }
 
     [Test]
     public void Solution2Test() {
         var instance = new AoC2015Day14();
         var result = instance.Solution2();
-        Assert.AreEqual(1059, result);
+        Assert.That(1059, Is.EqualTo(result));
         Console.WriteLine($"Result: {result}");
     }
 }

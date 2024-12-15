@@ -16,14 +16,14 @@ public class AoC2015Day12Tests {
     [TestCase("{}", 0)]
     public void Solution1Example(string input, long expect) {
         var instance = new AoC2015Day12(input);
-        Assert.AreEqual(expect, instance.Solution1());
+        Assert.That(expect, Is.EqualTo(instance.Solution1()));
     }
 
     [Test]
     public void Solution1Test() {
         var instance = new AoC2015Day12();
         var result = instance.Solution1();
-        Assert.AreEqual(191164, result);
+        Assert.That(191164, Is.EqualTo(result));
         Console.WriteLine($"Result: {result}");
     }
 
@@ -38,14 +38,14 @@ public class AoC2015Day12Tests {
     [TestCase("{\"a\":{\"b\":\"red\",\"c\":3},\"d\":\"red\",\"e\":3}", 0)]
     public void Solution2Example(string input, long expect) {
         var instance = new AoC2015Day12(input);
-        Assert.AreEqual(expect, instance.Solution2());
+        Assert.That(expect, Is.EqualTo(instance.Solution2()));
     }
 
     [Test]
     public void Solution2Test() {
         var instance = new AoC2015Day12();
         var result = instance.Solution2();
-        Assert.AreEqual(87842, result);
+        Assert.That(87842, Is.EqualTo(result));
         Console.WriteLine($"Result: {result}");
     }
 }

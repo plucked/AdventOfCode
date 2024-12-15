@@ -10,7 +10,7 @@ public class AoC2015Day16Tests {
     public void Solution1Test() {
         var instance = new AoC2015Day16();
         var result = instance.Solution1();
-        Assert.AreEqual(213, result);
+        Assert.That(213, Is.EqualTo(result));
         Console.WriteLine($"Result: {result}");
     }
 
@@ -18,7 +18,7 @@ public class AoC2015Day16Tests {
     public void Solution2Test() {
         var instance = new AoC2015Day16();
         var result = instance.Solution2();
-        Assert.AreEqual(323, result);
+        Assert.That(323, Is.EqualTo(result));
         Console.WriteLine($"Result: {result}");
     }
 }

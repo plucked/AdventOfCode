@@ -16,7 +16,7 @@ public class AoC2022Day14Tests {
         }
 
         var instance = new AoC2022Day14(input);
-        Assert.AreEqual(expect, instance.Solution1());
+        Assert.That(expect, Is.EqualTo(instance.Solution1()));
     }
 
     [TestCase("test_input", 93)]
@@ -29,6 +29,6 @@ public class AoC2022Day14Tests {
         }
 
         var instance = new AoC2022Day14(input);
-        Assert.AreEqual(expect, instance.Solution2());
+        Assert.That(expect, Is.EqualTo(instance.Solution2()));
     }
 }

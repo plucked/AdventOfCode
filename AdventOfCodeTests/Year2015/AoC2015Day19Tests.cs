@@ -22,14 +22,14 @@ HOHOHO",
             7)]
     public void Solution1Example(string input, long expected) {
         var instance = new AoC2015Day19(input.Split(Environment.NewLine));
-        Assert.AreEqual(expected, instance.Solution1());
+        Assert.That(expected, Is.EqualTo(instance.Solution1()));
     }
 
     [Test]
     public void Solution1Test() {
         var instance = new AoC2015Day19();
         var result = instance.Solution1();
-        Assert.AreEqual(509, result);
+        Assert.That(509, Is.EqualTo(result));
         Console.WriteLine($"Result: {result}");
     }
 
@@ -53,14 +53,14 @@ HOHOHO",
             6)]
     public void Solution2Example(string input, long expected) {
         var instance = new AoC2015Day19(input.Split(Environment.NewLine));
-        Assert.AreEqual(expected, instance.Solution2());
+        Assert.That(expected, Is.EqualTo(instance.Solution2()));
     }
 
     [Test]
     public void Solution2Test() {
         var instance = new AoC2015Day19();
         var result = instance.Solution2();
-        Assert.AreEqual(195, result);
+        Assert.That(195, Is.EqualTo(result));
         Console.WriteLine($"Result: {result}");
     }
 }

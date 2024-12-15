@@ -10,14 +10,14 @@ public class AoC2015Day06Tests {
     [TestCase("toggle 0,0 through 999,0", 1_000)]
     public void SamplesSolution1(string input, long expect) {
         var instance = new AoC2015Day06(new[] { input });
-        Assert.AreEqual(expect, instance.Solution1());
+        Assert.That(expect, Is.EqualTo(instance.Solution1()));
     }
 
     [Test]
     public void Solution1Test() {
         var instance = new AoC2015Day06();
         var result = instance.Solution1();
-        Assert.AreEqual(569999, result);
+        Assert.That(569999, Is.EqualTo(result));
         Console.WriteLine($"Result: {result}");
     }
 
@@ -25,7 +25,7 @@ public class AoC2015Day06Tests {
     public void Solution2Test() {
         var instance = new AoC2015Day06();
         var result = instance.Solution2();
-        Assert.AreEqual(17836115, result);
+        Assert.That(17836115, Is.EqualTo(result));
         Console.WriteLine($"Result: {result}");
     }
 }

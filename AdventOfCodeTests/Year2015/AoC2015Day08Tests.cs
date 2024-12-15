@@ -10,21 +10,21 @@ public class AoC2015Day08Tests {
     public void Solution1Test() {
         var instance = new AoC2015Day08();
         var result = instance.Solution1();
-        Assert.AreEqual(1371, result);
+        Assert.That(1371, Is.EqualTo(result));
         Console.WriteLine($"Result: {result}");
     }
 
     [TestCase(new[] { @"""""", "\"abc\"", "\"aaa\\\"aaa\"", "\"\\x27\"" }, 19)]
     public void Solution2Example(string[] input, long expect) {
         var instance = new AoC2015Day08(input);
-        Assert.AreEqual(expect, instance.Solution2());
+        Assert.That(expect, Is.EqualTo(instance.Solution2()));
     }
 
     [Test]
     public void Solution2Test() {
         var instance = new AoC2015Day08();
         var result = instance.Solution2();
-        Assert.AreEqual(2117, result);
+        Assert.That(2117, Is.EqualTo(result));
         Console.WriteLine($"Result: {result}");
     }
 }

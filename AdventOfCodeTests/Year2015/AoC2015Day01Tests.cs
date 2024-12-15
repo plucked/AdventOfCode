@@ -17,14 +17,14 @@ public class AoC2015Day01Tests {
     [TestCase(")())())", -3)]
     public void Samples(string input, long expect) {
         var instance = new AoC2015Day01(input);
-        Assert.AreEqual(expect, instance.Solution1());
+        Assert.That(expect, Is.EqualTo(instance.Solution1()));
     }
 
     [Test]
     public void Solution1Test() {
         var instance = new AoC2015Day01();
         var result = instance.Solution1();
-        Assert.AreEqual(74, result);
+        Assert.That(74, Is.EqualTo(result));
         Console.WriteLine($"Result: {result}");
     }
 
@@ -32,7 +32,7 @@ public class AoC2015Day01Tests {
     public void Solution2Test() {
         var instance = new AoC2015Day01();
         var result = instance.Solution2();
-        Assert.AreEqual(1795, result);
+        Assert.That(1795, Is.EqualTo(result));
         Console.WriteLine($"Result: {result}");
     }
 }

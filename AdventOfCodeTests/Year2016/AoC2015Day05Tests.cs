@@ -10,7 +10,7 @@ public class AoC2015Day05Tests {
     public void Solution1Example(string input, string expected) {
         var instance = new AoC2016Day05(input);
         var result = instance.Solution1();
-        Assert.AreEqual(expected, result);
+        Assert.That(expected, Is.EqualTo(result));
         Console.WriteLine($"Result: {result}");
     }
 
@@ -18,7 +18,7 @@ public class AoC2015Day05Tests {
     public void Solution1Test() {
         var instance = new AoC2016Day05();
         var result = instance.Solution1();
-        Assert.AreEqual("f97c354d", result);
+        Assert.That("f97c354d", Is.EqualTo(result));
         Console.WriteLine($"Result: {result}");
     }
 
@@ -26,7 +26,7 @@ public class AoC2015Day05Tests {
     public void Solution2Example(string input, string expected) {
         var instance = new AoC2016Day05(input);
         var result = instance.Solution2();
-        Assert.AreEqual(expected, result);
+        Assert.That(expected, Is.EqualTo(result));
         Console.WriteLine($"Result: {result}");
     }
 
@@ -34,7 +34,7 @@ public class AoC2015Day05Tests {
     public void Solution2Test() {
         var instance = new AoC2016Day05();
         var result = instance.Solution2();
-        Assert.AreEqual("863dde27", result);
+        Assert.That("863dde27", Is.EqualTo(result));
         Console.WriteLine($"Result: {result}");
     }
 }

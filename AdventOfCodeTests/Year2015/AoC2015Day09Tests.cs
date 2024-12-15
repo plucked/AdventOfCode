@@ -9,14 +9,14 @@ public class AoC2015Day09Tests {
     [TestCase(new[] { "London to Dublin = 464", "London to Belfast = 518", "Dublin to Belfast = 141" }, 605)]
     public void Solution1Example(string[] input, long expect) {
         var instance = new AoC2015Day09(input);
-        Assert.AreEqual(expect, instance.Solution1());
+        Assert.That(expect, Is.EqualTo(instance.Solution1()));
     }
 
     [Test]
     public void Solution1Test() {
         var instance = new AoC2015Day09();
         var result = instance.Solution1();
-        Assert.AreEqual(251, result);
+        Assert.That(251, Is.EqualTo(result));
         Console.WriteLine($"Result: {result}");
     }
 
@@ -24,7 +24,7 @@ public class AoC2015Day09Tests {
     public void Solution2Test() {
         var instance = new AoC2015Day09();
         var result = instance.Solution2();
-        Assert.AreEqual(898, result);
+        Assert.That(898, Is.EqualTo(result));
         Console.WriteLine($"Result: {result}");
     }
 }
